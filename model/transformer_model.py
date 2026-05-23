@@ -1390,7 +1390,7 @@ def test_generate(caption):
         device = torch.device("cpu")
         print("Using CPU")
 
-    artifact_folder = '../artifacts'
+    artifact_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../artifacts')
     tokenizer_filepath = os.path.join(artifact_folder, "vocab_remi.pkl")
     caption_dataset_path = '/root/text2midi/captions/train.json'
     print(f'caption_dataset_path: {caption_dataset_path}')
@@ -1402,8 +1402,10 @@ def test_generate(caption):
     print("Vocab size: ", vocab_size)
 
     # Initialize model
+    from huggingface_hub import hf_hub_download
     model = Transformer(vocab_size, 768, 8, 2048, 18, 1024, False, 8, device=device)
-    model.load_state_dict(torch.load('/root/test/text2midi/output_new/epoch_30/pytorch_model.bin', map_location=device))
+    model_path = hf_hub_download(repo_id="amaai-lab/text2midi", filename="pytorch_model.bin")
+    model.load_state_dict(torch.load(model_path, map_location=device))
     model.to(device)  # Move model to detected device
     model.eval()
 
@@ -1443,7 +1445,7 @@ def test_generate(caption):
 
     # Decode and save MIDI
     generated_midi = r_tokenizer.decode(output_list)
-    generated_midi.dump_midi(f"../../output_christmas_2.mid")
+    generated_midi.dump_midi("output.mid")
 
 def load_model_and_tokenizer(accelerator, model_path, vocab_size, tokenizer_filepath):
     device = accelerator.device
@@ -1469,7 +1471,7 @@ def process_example(accelerator, model, tokenizer, r_tokenizer, example, locatio
 
 def run_accelerate_generation():
     accelerator = Accelerator()
-    artifact_folder = '../artifacts'
+    artifact_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../artifacts')
     tokenizer_filepath = os.path.join(artifact_folder, "vocab_remi.pkl")
     model_path = '/root/output_test_new/epoch_30/pytorch_model.bin'
     captions_path = '/root/captions/train.json'
