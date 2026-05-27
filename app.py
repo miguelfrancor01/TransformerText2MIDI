@@ -335,11 +335,12 @@ def render_generator_panel() -> None:
         "A dark cinematic piece in C minor with strings and brass",
         "A relaxing jazz song with saxophone and piano at 90 BPM",
         "An energetic electronic track with synth bass at 140 BPM",
+        "Played at 114 beats per minute in 4/4 time signature and the key of G# minor, classical piece with the following instruments: clarinet, English horn, flute, horn, piccolo, trombone, and trumpet",       
     ]
     ex_cols = st.columns(2)
     for i, ex in enumerate(examples):
         with ex_cols[i % 2]:
-            if st.button(f"♪  {ex[:34]}...", key=f"ex{i}"):
+            if st.button(f"♪  {ex}", key=f"ex{i}"):
                 st.session_state["caption_val"] = ex
                 st.rerun()
 
