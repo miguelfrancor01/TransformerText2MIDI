@@ -9,20 +9,18 @@
 ---
 
 ## **Proyecto final - análisis de arquitectura Transformer**
-## Text2midi — Generación de Música Simbólica desde Descripciones Textuales
 
 **Programa:** Especialización en Inteligencia Artificial  
 **Institución:** Universidad Autónoma de Occidente  
 **Semestre:** 2026–1S  
 
----
 
 ## **Autores**
    
 - Saulo Quiñones Góngora - 22506635
 - Adrian Felipe Vargas Rojas - 22505561
 - Miguel Angel Franco Restrepo - 22506163
----
+
 
 ## **Docente**
 **Natali Johana Velandia Fajardo**  
@@ -176,7 +174,7 @@ Los logits se convierten en una distribución de probabilidad válida mediante l
 El token con mayor probabilidad en la última posición de la secuencia se selecciona como el siguiente token MIDI generado. Este token se agrega al final de la secuencia de entrada y el proceso completo se repite desde el paso 5, ahora con una secuencia de longitud aumentada en uno. Este ciclo autoregresivo continúa hasta que el modelo genera el token especial de fin de secuencia (EOS) o se alcanza el límite de 2048 tokens.
 
 **15. Detokenización REMI+ → archivo .mid**
-Una vez generada la secuencia completa de tokens MIDI, el decodificador REMI+ convierte cada token de vuelta a su evento musical correspondiente —reconstruyendo las notas, instrumentos, tiempos y duraciones— y los escribe en un archivo MIDI binario. Este archivo puede reproducirse directamente o convertirse a audio mediante FluidSynth. **Entrada:** secuencia de tokens REMI+. **Salida:** archivo output.mid.
+Una vez generada la secuencia completa de tokens MIDI, el decodificador REMI+ convierte cada token de vuelta a su evento musical correspondiente —reconstruyendo las notas, instrumentos, tiempos y duraciones— y los escribe en un archivo MIDI binario. Este archivo puede reproducirse directamente o convertirse a audio mediante FluidSynth. **Entrada:** secuencia de tokens REMI+. **Salida:** archivo output.mid. En el diagrama descrito a continuación, se observa la estructura completa Encoder-Decoder referente a la arquitectura utilizada.
 
 <img width="1312" height="1019" alt="text2midi_architecture Diapositiva-Page-1 drawio" src="https://github.com/user-attachments/assets/6e60718f-9df6-436b-b2f8-e5d48873ba01" />
 
@@ -212,7 +210,7 @@ Con estos tensores, el decoder comienza la generación autoregresiva de tokens R
 
 La distribución de probabilidad sobre el vocabulario se escala mediante un parámetro de temperatura: valores menores a 1.0 producen música más predecible y conservadora, mientras que valores mayores generan resultados más variados y creativos. Este proceso se repite hasta alcanzar el número máximo de tokens definido, donde aproximadamente 500 tokens corresponden a un minuto de música.
 
-Con la secuencia completa de tokens generada, el tokenizador MidiTok la decodifica a un objeto `symusic.Score`, reconstruyendo las notas, velocidades, tiempos e instrumentos de la composición. El MIDI se serializa a bytes y se retornan junto con el conteo de tokens generados para su uso en la interfaz Streamlit.
+Con la secuencia completa de tokens generada, el tokenizador MidiTok la decodifica a un objeto `symusic.Score`, reconstruyendo las notas, velocidades, tiempos e instrumentos de la composición. El MIDI se serializa a bytes y se retornan junto con el conteo de tokens generados para su uso en la interfaz Streamlit. El diagrama descrito a continuación representa visualmente el flujo metodológico planteado para la implementación de la arquitectura con la respectiva interfaz gráfica.
 
 <img width="1542" height="791" alt="Copy of text2midi_architecture Diapositiva-Page-3 drawio (1)" src="https://github.com/user-attachments/assets/56306c43-80b5-451a-9610-652dbf603ce1" />
 
@@ -253,9 +251,7 @@ Text2midi supera a MuseCoco en todos los criterios. El criterio de menor puntaje
 
 ### 5.3 Resultados Obtenidos
 
-Se realizaron múltiples pruebas de inferencia variando el nivel de detalle del caption, la temperatura y la longitud de generación. Las observaciones fueron obtenidas directamente de las pruebas realizadas sobre la interfaz Streamlit desarrollada:
-
-
+Se realizaron múltiples pruebas de inferencia variando el nivel de detalle del caption, la temperatura y la longitud de generación. Las observaciones fueron obtenidas directamente de las pruebas realizadas sobre la interfaz Streamlit desarrollada, destacando lo siguiente:
 
 - El modelo demostró capacidad para generar música coherente con la descripción textual en la mayor parte de la secuencia, con correspondencia más clara a partir de los primeros 5 a 10 segundos, una vez que el decoder acumula suficiente contexto MIDI.
 - La generación con `max_len=1000` tomó aproximadamente 38.5 segundos sobre una GPU NVIDIA RTX 5070 Ti, resultado consistente con los ~55 segundos reportados por los autores para `max_len=2000`, confirmando que el tiempo escala aproximadamente de forma lineal con la longitud.
@@ -265,6 +261,19 @@ Se realizaron múltiples pruebas de inferencia variando el nivel de detalle del 
 - Los primeros segundos del MIDI tendieron a ser menos coherentes con el caption, comportamiento consistente con la limitación arquitectural de la masked self-attention operando con contexto mínimo al inicio de la generación.
 - La interfaz Streamlit funcionó correctamente en todas las pruebas. El reproductor waterfall, la descarga en MIDI y la conversión a MP3 mediante FluidSynth operaron sin inconvenientes.
 
+Complementando los resultados y hallazgos obtenidos, las siguientes figuras corresponden a la ejecución de la interfaz gráfica y el proceso de inferencia de la arquitectura en tiempo real:
+
+<div align = "center">
+
+<img width="1600" height="794" alt="Screenshot 1" src="https://github.com/user-attachments/assets/22d38039-bb83-4353-9242-4cc33e43283b" />
+****
+<img width="1600" height="756" alt="Screenshot 2" src="https://github.com/user-attachments/assets/41362db8-f298-4218-80bc-00eff827618e" />
+
+<img width="1600" height="760" alt="Screenshot 3" src="https://github.com/user-attachments/assets/90e9ddb6-9fe9-44c8-91c5-cee031555abc" />
+
+<img width="1600" height="736" alt="Screenshot 4" src="https://github.com/user-attachments/assets/ea2b72d9-86b1-4120-ad2f-abe9a448ea54" />
+
+</div>
 ---
 
 ## 6. Conclusiones
