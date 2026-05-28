@@ -280,7 +280,6 @@ Complementando los resultados y hallazgos obtenidos, las siguientes figuras corr
 <img width="1600" height="736" alt="Screenshot 4" src="https://github.com/user-attachments/assets/ea2b72d9-86b1-4120-ad2f-abe9a448ea54" />
 
 </div>
----
 
 ## 6. Conclusiones
 
