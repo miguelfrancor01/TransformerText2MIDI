@@ -1,3 +1,5 @@
+
+
 # Text2midi — Generación de Música Simbólica desde Descripciones Textuales
 
 Este proyecto implementa el modelo **Text2midi** propuesto por Bhandari et al. (2024) para inferencia local, permitiendo generar archivos MIDI a partir de descripciones en lenguaje natural mediante una arquitectura encoder-decoder de extremo a extremo.
@@ -142,6 +144,8 @@ El token con mayor probabilidad en la última posición de la secuencia se selec
 **15. Detokenización REMI+ → archivo .mid**
 Una vez generada la secuencia completa de tokens MIDI, el decodificador REMI+ convierte cada token de vuelta a su evento musical correspondiente —reconstruyendo las notas, instrumentos, tiempos y duraciones— y los escribe en un archivo MIDI binario. Este archivo puede reproducirse directamente o convertirse a audio mediante FluidSynth. **Entrada:** secuencia de tokens REMI+. **Salida:** archivo output.mid.
 
+<img width="1312" height="1019" alt="text2midi_architecture Diapositiva-Page-1 drawio" src="https://github.com/user-attachments/assets/6e60718f-9df6-436b-b2f8-e5d48873ba01" />
+
 ---
 
 ## 4. Metodología
@@ -175,6 +179,8 @@ Con estos tensores, el decoder comienza la generación autoregresiva de tokens R
 La distribución de probabilidad sobre el vocabulario se escala mediante un parámetro de temperatura: valores menores a 1.0 producen música más predecible y conservadora, mientras que valores mayores generan resultados más variados y creativos. Este proceso se repite hasta alcanzar el número máximo de tokens definido, donde aproximadamente 500 tokens corresponden a un minuto de música.
 
 Con la secuencia completa de tokens generada, el tokenizador MidiTok la decodifica a un objeto `symusic.Score`, reconstruyendo las notas, velocidades, tiempos e instrumentos de la composición. El MIDI se serializa a bytes y se retornan junto con el conteo de tokens generados para su uso en la interfaz Streamlit.
+
+<img width="1542" height="791" alt="Copy of text2midi_architecture Diapositiva-Page-3 drawio (1)" src="https://github.com/user-attachments/assets/56306c43-80b5-451a-9610-652dbf603ce1" />
 
 ---
 
