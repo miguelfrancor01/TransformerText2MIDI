@@ -1,4 +1,38 @@
+<div align = "justify">
 
+<div align = "justify">
+
+<p align="center">
+  <img src="https://www.uao.edu.co/wp-content/uploads/2024/12/UAO-LOGO-NUEVO_Mesa-de-trabajo-1-1-1-1.png" width="350">
+</p>
+
+---
+
+## **Proyecto final - análisis de arquitectura Transformer**
+## Text2midi — Generación de Música Simbólica desde Descripciones Textuales
+
+**Programa:** Especialización en Inteligencia Artificial  
+**Institución:** Universidad Autónoma de Occidente  
+**Semestre:** 2026–1S  
+
+---
+
+## **Autores**
+   
+- Saulo Quiñones Góngora - 22506635
+- Adrian Felipe Vargas Rojas - 22505561
+- Miguel Angel Franco Restrepo - 22506163
+---
+
+## **Docente**
+**Natali Johana Velandia Fajardo**  
+*Asignatura: Procesamiento de datos secuenciales con Deep Learning*
+
+---
+
+</div>
+
+</div>
 
 # Text2midi — Generación de Música Simbólica desde Descripciones Textuales
 
@@ -191,7 +225,7 @@ Con la secuencia completa de tokens generada, el tokenizador MidiTok la decodifi
 La evaluación oficial del modelo se realizó sobre 100 ejemplos del test set de MidiCaps, comparando contra MuseCoco (xlarge) y el ground truth.
 
 | Métrica | text2midi | MuseCoco | Significancia |
-|---|---|---|---|
+|:---:|:---:|:---:|:---:|
 | Compression Ratio ↑ | 2.31 | 2.12 | p < 0.0001 |
 | CLAP Score ↑ | 0.22 | 0.21 | p = 0.0102 |
 | Tempo Bin (%) ↑ | 39.70 | 21.71 | p = 0.1102 |
@@ -206,7 +240,7 @@ Text2midi supera a MuseCoco en todas las métricas, siendo Compression Ratio y C
 11 participantes evaluaron 15 MIDIs en escala Likert 1-7 (muy malo a muy bueno):
 
 | Criterio | MidiCaps GT | text2midi | MuseCoco |
-|---|---|---|---|
+|:---:|:---:|:---:|:---:|
 | Calidad musical | 5.79 | 4.62 | 4.40 |
 | Match general | 5.42 | 4.67 | 4.07 |
 | Match de género | 5.54 | 4.98 | 4.40 |
@@ -220,6 +254,8 @@ Text2midi supera a MuseCoco en todos los criterios. El criterio de menor puntaje
 ### 5.3 Resultados Obtenidos
 
 Se realizaron múltiples pruebas de inferencia variando el nivel de detalle del caption, la temperatura y la longitud de generación. Las observaciones fueron obtenidas directamente de las pruebas realizadas sobre la interfaz Streamlit desarrollada:
+
+
 
 - El modelo demostró capacidad para generar música coherente con la descripción textual en la mayor parte de la secuencia, con correspondencia más clara a partir de los primeros 5 a 10 segundos, una vez que el decoder acumula suficiente contexto MIDI.
 - La generación con `max_len=1000` tomó aproximadamente 38.5 segundos sobre una GPU NVIDIA RTX 5070 Ti, resultado consistente con los ~55 segundos reportados por los autores para `max_len=2000`, confirmando que el tiempo escala aproximadamente de forma lineal con la longitud.
