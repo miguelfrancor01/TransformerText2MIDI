@@ -36,6 +36,12 @@ Este proyecto implementa el modelo **Text2midi** propuesto por Bhandari et al. (
 
 ---
 
+## Instrucciones Generales
+
+El proyecto actual se encuentra basado en [AMAAI-Lab/Text2midi](https://github.com/AMAAI-Lab/Text2midi.git), por lo tanto se encuentran todos los archivos originales. El desarrollo de la interfaz gráfica y todos los recursos asociados para realizar inferencias del modelo se encuentran en la carpeta `SRC`, donde además podrán encontrarse algunos audios de ejemplo generados por el Transformer. Finalmente, el archivo que contiene la interfaz gráfica y que realiza el llamado a los métodos que ejecutarán las inferencias es `app.py` y se encuentra en la raíz del proyecto.
+
+---
+
 ## 1. Resumen
 
 A pesar del auge de los modelos generativos en los últimos años, la generación de música simbólica multiinstrumental había sido un campo poco explorado, en parte por la ausencia de datasets a gran escala que relacionaran archivos MIDI con descripciones textuales ricas. Text2midi aborda este problema combinando un encoder de lenguaje preentrenado con un decoder Transformer autoregresivo, permitiendo que usuarios técnicos y no técnicos generen piezas musicales completas a partir de instrucciones en lenguaje natural.
