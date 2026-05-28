@@ -1,7 +1,5 @@
 <div align = "justify">
 
-<div align = "justify">
-
 <p align="center">
   <img src="https://www.uao.edu.co/wp-content/uploads/2024/12/UAO-LOGO-NUEVO_Mesa-de-trabajo-1-1-1-1.png" width="350">
 </p>
@@ -30,7 +28,7 @@
 
 </div>
 
-</div>
+<div align = "justify">
 
 # Text2midi — Generación de Música Simbólica desde Descripciones Textuales
 
@@ -266,13 +264,13 @@ Complementando los resultados y hallazgos obtenidos, las siguientes figuras corr
 <div align = "center">
 
 <img width="1600" height="794" alt="Screenshot 1" src="https://github.com/user-attachments/assets/22d38039-bb83-4353-9242-4cc33e43283b" />
-****
+**Elementos de la interfaz gráfica**
 <img width="1600" height="756" alt="Screenshot 2" src="https://github.com/user-attachments/assets/41362db8-f298-4218-80bc-00eff827618e" />
-
+**Ingesta de prompt para la generación del archivo MIDI** 
 <img width="1600" height="760" alt="Screenshot 3" src="https://github.com/user-attachments/assets/90e9ddb6-9fe9-44c8-91c5-cee031555abc" />
-
+**Proceso de generación del archivo MIDI**
 <img width="1600" height="736" alt="Screenshot 4" src="https://github.com/user-attachments/assets/ea2b72d9-86b1-4120-ad2f-abe9a448ea54" />
-
+**Reproducción del archivo MIDI estilo Piano Roll**
 </div>
 ---
 
@@ -317,3 +315,5 @@ Complementando los resultados y hallazgos obtenidos, las siguientes figuras corr
 - Hendrycks, D., y Gimpel, K. (2016). Gaussian Error Linear Units (GELUs). arXiv:1606.08415. https://arxiv.org/abs/1606.08415
 - Google. (2023). FLAN-T5 Base Model Card and Configuration. HuggingFace Hub. https://huggingface.co/google/flan-t5-base/blob/main/config.json
 - Fradet, N., Briot, J. P., Chhel, F., El Fallah Seghrouchni, A., y Gutowski, N. (2021). MidiTok: A Python Package for MIDI File Tokenization. *ISMIR 2021 LBD*. https://miditok.readthedocs.io/en/v3.0.1/tokenizations.html
+
+</div>
