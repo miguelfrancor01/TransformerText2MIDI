@@ -30,7 +30,7 @@
 
 <div align = "justify">
 
-# Text2midi — Generación de Música Simbólica desde Descripciones Textuales
+## Text2midi — Generación de Música Simbólica desde Descripciones Textuales
 
 Este proyecto implementa el modelo **Text2midi** propuesto por Bhandari et al. (2024) para inferencia local, permitiendo generar archivos MIDI a partir de descripciones en lenguaje natural mediante una arquitectura encoder-decoder de extremo a extremo.
 
@@ -263,14 +263,22 @@ Complementando los resultados y hallazgos obtenidos, las siguientes figuras corr
 
 <div align = "center">
 
-<img width="1600" height="794" alt="Screenshot 1" src="https://github.com/user-attachments/assets/22d38039-bb83-4353-9242-4cc33e43283b" />
 **Elementos de la interfaz gráfica**
+
+<img width="1600" height="794" alt="Screenshot 1" src="https://github.com/user-attachments/assets/22d38039-bb83-4353-9242-4cc33e43283b" />
+
+**Ingesta de prompt para la generación del archivo MIDI**
+
 <img width="1600" height="756" alt="Screenshot 2" src="https://github.com/user-attachments/assets/41362db8-f298-4218-80bc-00eff827618e" />
-**Ingesta de prompt para la generación del archivo MIDI** 
-<img width="1600" height="760" alt="Screenshot 3" src="https://github.com/user-attachments/assets/90e9ddb6-9fe9-44c8-91c5-cee031555abc" />
+
 **Proceso de generación del archivo MIDI**
-<img width="1600" height="736" alt="Screenshot 4" src="https://github.com/user-attachments/assets/ea2b72d9-86b1-4120-ad2f-abe9a448ea54" />
+ 
+<img width="1600" height="760" alt="Screenshot 3" src="https://github.com/user-attachments/assets/90e9ddb6-9fe9-44c8-91c5-cee031555abc" />
+
 **Reproducción del archivo MIDI estilo Piano Roll**
+
+<img width="1600" height="736" alt="Screenshot 4" src="https://github.com/user-attachments/assets/ea2b72d9-86b1-4120-ad2f-abe9a448ea54" />
+
 </div>
 ---
 
